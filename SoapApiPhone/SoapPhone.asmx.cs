@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SoapApiPhone.DAO;
+using SoapApiPhone.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +20,14 @@ namespace SoapApiPhone
     {
 
         [WebMethod]
-        public string PhoneTitle()
+        public CatalogPhone GetAll()
         {
-            return "Téléphones";
+            return PhoneDao.GetAll();
+        }
+
+        [WebMethod]
+        public Phone GetById(string id) {
+            return PhoneDao.GetById(id);
         }
     }
 }
